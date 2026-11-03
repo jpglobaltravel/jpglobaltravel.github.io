@@ -27,11 +27,14 @@
     .collection { padding: 78px 8% 86px; text-align: center; }
     .collection h2 { margin: 0 0 18px; font-size: clamp(29px, 3.5vw, 38px); }
     .section-text { margin: 0 auto 38px; max-width: 630px; color: #65717B; font-size: 16px; line-height: 1.8; }
-    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 1100px; margin: 0 auto; }
-    .card { position: relative; min-height: 235px; padding: 69px 32px 38px; background: #FAF8F3; border: 1px solid #E7E1D7; border-top: 2px solid #B6A27C; border-radius: 6px; box-shadow: 0 6px 18px rgba(37, 55, 71, .06); }
-    .card::before { content: "JP Global Travel"; position: absolute; top: 17px; left: 50%; transform: translateX(-50%); font-family: Arial, sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 3px; color: #B69A63; white-space: nowrap; }
-    .card h3 { margin: 0 0 16px; color: #253747; font-size: clamp(21px, 2.2vw, 26px); font-weight: 400; letter-spacing: 1px; }
-    .card p { margin: 0 auto; max-width: 360px; font-size: 15px; line-height: 1.75; color: #65717B; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 27px; max-width: 1100px; margin: 0 auto; }
+    .card { position: relative; background: #FAF8F3; border: 1px solid #E7E1D7; border-top: 2px solid #B6A27C; border-radius: 6px; overflow: hidden; box-shadow: 0 6px 18px rgba(37, 55, 71, .06); }
+    .card::before { content: "JP Global Travel"; display: block; padding: 21px 10px 19px; text-align: center; font-family: Arial, sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 3px; color: #B69A63; }
+    .card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+    .card-content { padding: 29px 28px 35px; }
+    .card h3 { margin: 0 0 14px; color: #253747; font-size: clamp(21px, 2.2vw, 26px); font-weight: 400; letter-spacing: 1px; }
+    .card p { margin: 0 auto; max-width: 365px; font-size: 15px; line-height: 1.75; color: #65717B; }
+    .illustration-note { margin: 21px auto 0; max-width: 650px; font-size: 12px; line-height: 1.55; color: #7B858B; }
 
     /* Área preparada para ampliar el catálogo cuando se confirme disponibilidad */
     .future { padding: 66px 8% 77px; background: #F8F6F1; text-align: center; }
@@ -51,7 +54,7 @@
       .intro p:last-child { font-size: 15px; line-height: 1.7; }
       .collection { padding: 62px 7% 69px; }
       .cards { grid-template-columns: 1fr; gap: 24px; }
-      .card { min-height: 208px; padding: 68px 23px 34px; }
+      .card-content { padding: 26px 23px 33px; }
       .future { padding: 60px 7% 67px; }
     }
   </style>
@@ -78,26 +81,39 @@
       <p class="section-text">Desde el ritmo de una ciudad hasta la calma junto al mar, explora el estilo de alojamiento que mejor acompaña tu próxima experiencia.</p>
       <div class="cards">
         <article class="card">
-          <h3>Hoteles urbanos</h3>
-          <p>Comodidad y ubicación para descubrir grandes ciudades a tu propio ritmo.</p>
+          <img src="hotel-urbano.jpg" alt="Lobby elegante de un hotel urbano con vista a los edificios de una ciudad" width="1200" height="900" loading="lazy">
+          <div class="card-content">
+            <h3>Hoteles urbanos</h3>
+            <p>Comodidad y ubicación para descubrir grandes ciudades a tu propio ritmo.</p>
+          </div>
           <!-- Espacio para incorporar hoteles urbanos concretos más adelante. -->
         </article>
         <article class="card">
-          <h3>Resorts frente al mar</h3>
-          <p>Descanso, paisajes y días para disfrutar junto al océano.</p>
+          <img src="resort-mar.jpg" alt="Resort de playa con piscina infinita, palmeras y vista al océano" width="1200" height="900" loading="lazy">
+          <div class="card-content">
+            <h3>Resorts frente al mar</h3>
+            <p>Descanso, paisajes y días para disfrutar junto al océano.</p>
+          </div>
           <!-- Espacio para incorporar resorts concretos más adelante. -->
         </article>
         <article class="card">
-          <h3>Hoteles boutique</h3>
-          <p>Espacios con carácter, atención cercana y detalles que hacen la diferencia.</p>
+          <img src="hotel-boutique.jpg" alt="Salón acogedor de hotel boutique con arcos de piedra y mobiliario artesanal" width="1200" height="900" loading="lazy">
+          <div class="card-content">
+            <h3>Hoteles boutique</h3>
+            <p>Espacios con carácter, atención cercana y detalles que hacen la diferencia.</p>
+          </div>
           <!-- Espacio para incorporar hoteles boutique concretos más adelante. -->
         </article>
         <article class="card">
-          <h3>Escapadas especiales</h3>
-          <p>Lugares para desconectarse, celebrar o vivir algo diferente.</p>
+          <img src="escapada-especial.jpg" alt="Alojamiento exclusivo frente a un lago y montañas para una escapada de naturaleza" width="1200" height="900" loading="lazy">
+          <div class="card-content">
+            <h3>Escapadas especiales</h3>
+            <p>Lugares para desconectarse, celebrar o vivir algo diferente.</p>
+          </div>
           <!-- Espacio para incorporar alojamientos de escapadas especiales más adelante. -->
         </article>
       </div>
+      <p class="illustration-note">Imágenes ilustrativas de estilos de alojamiento; no corresponden a hoteles específicos.</p>
     </section>
 
     <section class="future" aria-labelledby="titulo-futuro">
