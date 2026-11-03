@@ -24,6 +24,25 @@ h2{font-family:Georgia,serif;font-weight:400;font-size:34px}
 .card h3{font-weight:400;letter-spacing:1px;color:#253747;font-size:20px;margin-bottom:12px}
 
 .card p{font-size:14px;color:#65717b;line-height:1.7}
+ 
+.cards .card {
+  position: relative;
+  margin-top: 30px;
+}
+
+.cards .card::before {
+  content: "JP Global Travel";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: #B69A63;
+  white-space: nowrap;
+}
 footer{text-align:center;background:#253443;color:white;padding:35px 15px;font-size:12px}
 
 @media (max-width: 600px) {
