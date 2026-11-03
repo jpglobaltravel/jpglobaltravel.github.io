@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre las propuestas de Hoteles y Resorts de JP Global Travel: hoteles urbanos, resorts frente al mar, hoteles boutique y escapadas especiales.">
+  <title>Hoteles y Resorts | JP Global Travel</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #253443; background: #fff; }
+
+    /* Encabezado coherente con la página principal */
+    header { background: #fff; padding: 4px 8%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; gap: 20px; flex-wrap: wrap; }
+    .logo img { width: 185px; max-width: 100%; height: auto; display: block; }
+    nav a { margin-left: 20px; text-decoration: none; color: #253443; font-size: 18px; }
+    nav a:hover, nav a:focus-visible { color: #A58A5F; }
+
+    /* Presentación */
+    .intro { padding: 92px 8% 82px; background: #F8F6F1; text-align: center; }
+    .eyebrow { margin: 0 0 24px; font-size: 12px; font-weight: 400; letter-spacing: 3px; color: #A58A5F; text-transform: uppercase; }
+    h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+    h1 { margin: 0 auto 23px; font-size: clamp(36px, 4.5vw, 54px); line-height: 1.2; }
+    .intro p:last-child { margin: 0 auto; max-width: 680px; font-size: 17px; line-height: 1.85; color: #52606D; }
+
+    /* Categorías */
+    .collection { padding: 78px 8% 86px; text-align: center; }
+    .collection h2 { margin: 0 0 18px; font-size: clamp(29px, 3.5vw, 38px); }
+    .section-text { margin: 0 auto 38px; max-width: 630px; color: #65717B; font-size: 16px; line-height: 1.8; }
+    .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 1100px; margin: 0 auto; }
+    .card { position: relative; min-height: 235px; padding: 69px 32px 38px; background: #FAF8F3; border: 1px solid #E7E1D7; border-top: 2px solid #B6A27C; border-radius: 6px; box-shadow: 0 6px 18px rgba(37, 55, 71, .06); }
+    .card::before { content: "JP Global Travel"; position: absolute; top: 17px; left: 50%; transform: translateX(-50%); font-family: Arial, sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 3px; color: #B69A63; white-space: nowrap; }
+    .card h3 { margin: 0 0 16px; color: #253747; font-size: clamp(21px, 2.2vw, 26px); font-weight: 400; letter-spacing: 1px; }
+    .card p { margin: 0 auto; max-width: 360px; font-size: 15px; line-height: 1.75; color: #65717B; }
+
+    /* Área preparada para ampliar el catálogo cuando se confirme disponibilidad */
+    .future { padding: 66px 8% 77px; background: #F8F6F1; text-align: center; }
+    .future .line { width: 56px; height: 2px; background: #B6A27C; margin: 0 auto 24px; }
+    .future h2 { margin: 0 0 18px; font-size: clamp(28px, 3vw, 36px); }
+    .future p { margin: 0 auto; max-width: 660px; color: #52606D; line-height: 1.8; font-size: 16px; }
+    .contact-link { display: inline-block; margin-top: 28px; padding: 15px 30px; background: #253443; color: white; text-decoration: none; font-size: 12px; letter-spacing: 1.2px; }
+    .contact-link:hover, .contact-link:focus-visible { background: #3C5365; }
+    footer { text-align: center; background: #253443; color: white; padding: 35px 15px; font-size: 12px; }
+
+    @media (max-width: 700px) {
+      header { padding: 8px 5% 14px; flex-direction: column; gap: 4px; }
+      .logo img { width: 115px; }
+      nav { display: flex; justify-content: center; gap: 18px; }
+      nav a { margin-left: 0; font-size: 14px; letter-spacing: .3px; }
+      .intro { padding: 70px 7% 63px; }
+      .intro p:last-child { font-size: 15px; line-height: 1.7; }
+      .collection { padding: 62px 7% 69px; }
+      .cards { grid-template-columns: 1fr; gap: 24px; }
+      .card { min-height: 208px; padding: 68px 23px 34px; }
+      .future { padding: 60px 7% 67px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="index.html#inicio" aria-label="JP Global Travel, volver al inicio"><img src="Logotipo JP Global Travel con Globo.png" alt="JP Global Travel"></a></div>
+    <nav aria-label="Navegación principal">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="titulo-pagina">
+      <p class="eyebrow">JP Global Travel</p>
+      <h1 id="titulo-pagina">Hoteles y Resorts</h1>
+      <p>Cada estadía forma parte de la experiencia. Descubre distintas maneras de alojarte y comienza a imaginar tu próximo viaje.</p>
+    </section>
+
+    <section class="collection" aria-labelledby="titulo-categorias">
+      <h2 id="titulo-categorias">Una estadía para cada viaje.</h2>
+      <p class="section-text">Desde el ritmo de una ciudad hasta la calma junto al mar, explora el estilo de alojamiento que mejor acompaña tu próxima experiencia.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Hoteles urbanos</h3>
+          <p>Comodidad y ubicación para descubrir grandes ciudades a tu propio ritmo.</p>
+          <!-- Espacio para incorporar hoteles urbanos concretos más adelante. -->
+        </article>
+        <article class="card">
+          <h3>Resorts frente al mar</h3>
+          <p>Descanso, paisajes y días para disfrutar junto al océano.</p>
+          <!-- Espacio para incorporar resorts concretos más adelante. -->
+        </article>
+        <article class="card">
+          <h3>Hoteles boutique</h3>
+          <p>Espacios con carácter, atención cercana y detalles que hacen la diferencia.</p>
+          <!-- Espacio para incorporar hoteles boutique concretos más adelante. -->
+        </article>
+        <article class="card">
+          <h3>Escapadas especiales</h3>
+          <p>Lugares para desconectarse, celebrar o vivir algo diferente.</p>
+          <!-- Espacio para incorporar alojamientos de escapadas especiales más adelante. -->
+        </article>
+      </div>
+    </section>
+
+    <section class="future" aria-labelledby="titulo-futuro">
+      <div class="line" aria-hidden="true"></div>
+      <h2 id="titulo-futuro">Próximamente, nuestra selección de alojamientos.</h2>
+      <p>Estamos preparando este espacio para que puedas explorar opciones de hoteles y resorts con mayor detalle. Mientras tanto, cuéntanos qué tipo de viaje tienes en mente.</p>
+      <a class="contact-link" href="mailto:contacto@jpglobaltravel.com?subject=Consulta%20sobre%20Hoteles%20y%20Resorts">CONTACTAR</a>
+    </section>
+  </main>
+
+  <footer>JP Global Travel · Asesoría de viajes independiente</footer>
+</body>
+</html>
