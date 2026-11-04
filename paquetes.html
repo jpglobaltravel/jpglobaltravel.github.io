@@ -33,6 +33,55 @@
     .card h3 { margin: 0 0 16px; color: #253747; font-size: clamp(21px, 2.2vw, 26px); font-weight: 400; letter-spacing: 1px; }
     .card p { margin: 0 auto; max-width: 360px; font-size: 15px; line-height: 1.75; color: #65717B; }
 
+
+    /* Cierre de Paquetes, consistente con JP Global Travel */
+    .cierre-paquetes {
+      padding: 76px 8% 86px;
+      background: #F8F6F1;
+      text-align: center;
+    }
+    .cierre-paquetes::before {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 2px;
+      margin: 0 auto 28px;
+      background: #B6A27C;
+    }
+    .cierre-paquetes h2 {
+      margin: 0 auto 22px;
+      color: #253443;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 400;
+      font-size: clamp(30px, 3.5vw, 40px);
+      line-height: 1.3;
+    }
+    .cierre-paquetes p {
+      margin: 0 auto 30px;
+      max-width: 730px;
+      color: #65717B;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    .cierre-paquetes .boton-contactar {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #253747;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    .cierre-paquetes .boton-contactar:hover,
+    .cierre-paquetes .boton-contactar:focus-visible {
+      background: #36536D;
+    }
+    @media (max-width: 700px) {
+      .cierre-paquetes { padding: 63px 7% 72px; }
+      .cierre-paquetes p { font-size: 15px; line-height: 1.75; }
+    }
+
     footer { text-align: center; background: #253443; color: white; padding: 35px 15px; font-size: 12px; }
     .photo-credit { margin-top: 16px; font-size: 10px; opacity: .68; }
     .photo-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
@@ -100,6 +149,12 @@
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="cierre-paquetes" aria-labelledby="titulo-cierre-paquetes">
+      <h2 id="titulo-cierre-paquetes">Experiencias diseñadas para descubrir el mundo.</h2>
+      <p>Estamos preparando este espacio para que puedas explorar nuestros paquetes de viaje con mayor detalle. Mientras tanto, cuéntanos qué destino o experiencia tienes en mente y te ayudaremos a encontrar una propuesta a tu medida.</p>
+      <a class="boton-contactar" href="index.html#contacto">CONTACTAR</a>
     </section>
   </main>
 
