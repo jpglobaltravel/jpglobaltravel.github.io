@@ -35,6 +35,52 @@
     .card h3 { margin: 0 0 16px; color: #253747; font-size: clamp(21px, 2.2vw, 26px); font-weight: 400; letter-spacing: 1px; }
     .card p { margin: 0 auto; max-width: 360px; font-size: 15px; line-height: 1.75; color: #65717B; }
 
+
+    /* Cierre editorial y contacto — JP Global Travel */
+    .cierre-vuelos {
+      padding: 76px 8% 86px;
+      background: #F8F6F1;
+      text-align: center;
+    }
+    .cierre-vuelos::before {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 2px;
+      margin: 0 auto 28px;
+      background: #B6A27C;
+    }
+    .cierre-vuelos h2 {
+      margin: 0 auto 22px;
+      font-size: clamp(30px, 3.5vw, 40px);
+      line-height: 1.3;
+    }
+    .cierre-vuelos p {
+      margin: 0 auto 30px;
+      max-width: 730px;
+      color: #65717B;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    .cierre-vuelos .boton-contactar {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #253747;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+    .cierre-vuelos .boton-contactar:hover,
+    .cierre-vuelos .boton-contactar:focus-visible {
+      background: #36536D;
+    }
+    @media (max-width: 700px) {
+      .cierre-vuelos { padding: 63px 7% 72px; }
+      .cierre-vuelos p { font-size: 15px; line-height: 1.75; }
+    }
+
     footer { text-align: center; background: #253443; color: white; padding: 35px 15px; font-size: 12px; }
 
     @media (max-width: 700px) {
@@ -98,6 +144,12 @@
 </div>
 </article>
 </div>
+</section>
+
+<section class="cierre-vuelos" aria-labelledby="titulo-cierre-vuelos">
+  <h2 id="titulo-cierre-vuelos">Tu próximo destino comienza aquí.</h2>
+  <p>Estamos preparando este espacio para que puedas explorar nuestras propuestas de vuelos con mayor detalle. Mientras tanto, cuéntanos qué viaje tienes en mente y te orientaremos de manera cercana y personalizada.</p>
+  <a class="boton-contactar" href="index.html#contacto">CONTACTAR</a>
 </section>
 </main>
 <footer>JP Global Travel · Asesoría de viajes independiente</footer>
