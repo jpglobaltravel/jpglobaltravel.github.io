@@ -143,5 +143,15 @@
     <div class="back"><a href="index.html#servicios">Volver a nuestros servicios</a></div>
   </main>
   <footer>JP Global Travel · Asesoría de viajes independiente</footer>
+<script>
+const servicio = new URLSearchParams(window.location.search).get('servicio');
+const selector = document.querySelector('select[name="servicio"]');
+if (servicio && selector) {
+  const opcion = Array.from(selector.options).find(
+    item => item.value === servicio
+  );
+  if (opcion) selector.value = opcion.value;
+}
+</script>
 </body>
 </html>
