@@ -48,118 +48,360 @@
       .panel { padding: 26px 18px; }
       .two { grid-template-columns: 1fr; gap: 22px; }
     }
+    /* Selector de idioma: respeta los tonos originales de JP Global Travel. */
+    .language-picker { display: flex; align-items: center; gap: 9px; }
+    .language-picker label { margin: 0; font-size: 12px; color: #52606D; white-space: nowrap; }
+    .language-picker select { width: auto; min-width: 118px; padding: 8px 28px 8px 10px;
+      font-size: 13px; background: #FAF8F3; border: 1px solid #E7E1D7; color: #253443; }
+    @media (max-width: 600px) {
+      .language-picker { justify-content: center; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo"><a href="index.html#inicio" aria-label="JP Global Travel, volver al inicio"><img src="Logotipo JP Global Travel con Globo.png" alt="JP Global Travel"></a></div>
     <nav aria-label="Navegación principal">
-      <a href="index.html#inicio">Inicio</a>
-      <a href="index.html#servicios">Servicios</a>
-      <a href="index.html#contacto">Contacto</a>
+      <a href="index.html#inicio" data-i18n="home">Inicio</a>
+      <a href="index.html#servicios" data-i18n="services">Servicios</a>
+      <a href="index.html#contacto" data-i18n="contact">Contacto</a>
     </nav>
+    <div class="language-picker">
+      <label for="idioma" data-i18n="language">Idioma</label>
+      <select id="idioma" aria-label="Seleccionar idioma / Select language">
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+      </select>
+    </div>
   </header>
   <main>
     <section class="intro">
       <p class="eyebrow">JP GLOBAL TRAVEL</p>
-      <h1>Tu próximo viaje comienza aquí.</h1>
-      <p>Cuéntanos cómo imaginas tu próxima experiencia. Prepararemos una propuesta personalizada según tus preferencias, fechas y destino.</p>
+      <h1 data-i18n="heroTitle">Tu próximo viaje comienza aquí.</h1>
+      <p data-i18n="heroDesc">Cuéntanos cómo imaginas tu próxima experiencia. Prepararemos una propuesta personalizada según tus preferencias, fechas y destino.</p>
     </section>
     <section class="section-form" aria-labelledby="form-title">
-      
-<div class="panel" style="display:none">
-  <h2>Solicita tu viaje</h2>
-  <p class="lead">Cuéntanos cómo imaginas tu próximo viaje. Nosotros te ayudamos a hacerlo realidad.</p>
-  <iframe src="https://form.jotform.com/263085524643055" title="Formulario de JP Global Travel" style="width:100%; height:1050px; border:0;" loading="lazy"></iframe>
-  <p class="note">Esta solicitud no constituye una reserva ni garantiza disponibilidad o tarifas.</p>
-</div>
-
-   <div class="panel">
-        <h2 id="form-title">Solicita tu cotización</h2>
-        <p class="lead">Completa los siguientes datos y nos pondremos en contacto contigo.</p>
+      <div class="panel">
+        <h2 id="form-title" data-i18n="formTitle">Solicita tu cotización</h2>
+        <p class="lead" data-i18n="formDesc">Completa los siguientes datos y nos pondremos en contacto contigo.</p>
         <form action="https://formspree.io/f/mwllyavv" method="POST">
           <div class="two">
             <div class="field">
-              <label for="nombre">Nombre y apellido *</label>
+              <label for="nombre" data-i18n="name">Nombre y apellido *</label>
               <input id="nombre" name="nombre" type="text" autocomplete="name" required maxlength="120">
             </div>
             <div class="field">
-              <label for="correo">Correo electrónico *</label>
+              <label for="correo" data-i18n="email">Correo electrónico *</label>
               <input id="correo" name="email" type="email" autocomplete="email" required maxlength="180">
             </div>
           </div>
           <div class="two">
             <div class="field">
-              <label for="telefono">Teléfono de contacto (opcional)</label>
+              <label for="telefono" data-i18n="phone">Teléfono de contacto (opcional)</label>
               <input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="50">
             </div>
             <div class="field">
-              <label for="servicio">¿Qué tipo de viaje buscas? *</label>
+              <label for="servicio" data-i18n="service">¿Qué tipo de viaje buscas? *</label>
               <select id="servicio" name="servicio" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option>Hoteles y resorts</option>
-                <option>Vuelos</option>
-                <option>Paquetes</option>
-                <option>Cruceros</option>
-                <option>Asesoría para un viaje personalizado</option>
+                <option value="" disabled selected data-i18n="selectOne">Selecciona una opción</option>
+                <option value="Hoteles y resorts" data-i18n="hotels">Hoteles y resorts</option>
+                <option value="Vuelos" data-i18n="flights">Vuelos</option>
+                <option value="Paquetes" data-i18n="packages">Paquetes</option>
+                <option value="Cruceros" data-i18n="cruises">Cruceros</option>
+                <option value="Asesoría para un viaje personalizado" data-i18n="bespoke">Asesoría para un viaje personalizado</option>
               </select>
             </div>
           </div>
           <div class="two">
             <div class="field">
-              <label for="origen">Ciudad o país de salida</label>
-              <input id="origen" name="origen" type="text" maxlength="120" placeholder="Ej.: Santiago, Chile">
+              <label for="origen" data-i18n="origin">Ciudad o país de salida</label>
+              <input id="origen" name="origen" type="text" maxlength="120" placeholder="Ej.: Santiago, Chile" data-i18n-placeholder="originPlaceholder">
             </div>
             <div class="field">
-              <label for="destino">Destino que te gustaría visitar *</label>
-              <input id="destino" name="destino" type="text" maxlength="160" required placeholder="Ej.: Maragogi, Brasil">
+              <label for="destino" data-i18n="destination">Destino que te gustaría visitar *</label>
+              <input id="destino" name="destino" type="text" maxlength="160" required placeholder="Ej.: Maragogi, Brasil" data-i18n-placeholder="destPlaceholder">
             </div>
           </div>
           <div class="two">
             <div class="field">
-              <label for="ida">Fecha estimada de inicio</label>
+              <label for="ida" data-i18n="start">Fecha estimada de inicio</label>
               <input id="ida" name="fecha_inicio" type="date">
             </div>
             <div class="field">
-              <label for="vuelta">Fecha estimada de regreso</label>
+              <label for="vuelta" data-i18n="end">Fecha estimada de regreso</label>
               <input id="vuelta" name="fecha_regreso" type="date">
             </div>
           </div>
           <div class="two">
             <div class="field">
-              <label for="viajeros">Número de viajeros *</label>
+              <label for="viajeros" data-i18n="travellers">Número de viajeros *</label>
               <input id="viajeros" name="viajeros" type="number" min="1" max="99" value="2" required>
             </div>
             <div class="field">
-              <label for="presupuesto">Presupuesto aproximado (opcional)</label>
-              <input id="presupuesto" name="presupuesto" type="text" maxlength="100" placeholder="Indica monto y moneda">
+              <label for="presupuesto" data-i18n="budget">Presupuesto aproximado (opcional)</label>
+              <input id="presupuesto" name="presupuesto" type="text" maxlength="100" placeholder="Indica monto y moneda" data-i18n-placeholder="budgetPlaceholder">
             </div>
           </div>
           <div class="field">
-            <label for="mensaje">Cuéntanos más sobre tu viaje</label>
-            <textarea id="mensaje" name="mensaje" maxlength="2500" placeholder="Preferencias de alojamiento, edades de niños si corresponde, intereses, flexibilidad de fechas u otros detalles..."></textarea>
+            <label for="mensaje" data-i18n="message">Cuéntanos más sobre tu viaje</label>
+            <textarea id="mensaje" name="mensaje" maxlength="2500" placeholder="Preferencias de alojamiento, edades de niños si corresponde, intereses, flexibilidad de fechas u otros detalles..." data-i18n-placeholder="messagePlaceholder"></textarea>
           </div>
           <div class="consent">
             <input id="consentimiento" name="consentimiento" type="checkbox" value="Sí, autorizo contacto sobre esta solicitud" required>
-            <label for="consentimiento">Autorizo a JP Global Travel a utilizar mis datos para responder esta solicitud de cotización. Entiendo que la información será enviada mediante Formspree. *</label>
+            <label for="consentimiento" data-i18n="consent">Autorizo a JP Global Travel a utilizar mis datos para responder esta solicitud de cotización. Entiendo que la información será enviada mediante Formspree. *</label>
           </div>
-          <button type="submit">ENVIAR SOLICITUD</button>
+          <button type="submit" data-i18n="submit">ENVIAR SOLICITUD</button>
         </form>
-        <p class="note">Esta solicitud no constituye una reserva ni garantiza disponibilidad o tarifas. No incluyas números de pasaporte, tarjetas ni información de pago.</p>
+        <p class="note" data-i18n="note">Esta solicitud no constituye una reserva ni garantiza disponibilidad o tarifas. No incluyas números de pasaporte, tarjetas ni información de pago.</p>
       </div>
     </section>
-    <div class="back"><a href="index.html#servicios">Volver a nuestros servicios</a></div>
+    <div class="back"><a href="index.html#servicios" data-i18n="back">Volver a nuestros servicios</a></div>
   </main>
-  <footer>JP Global Travel · Asesoría de viajes independiente</footer>
-<script>
-const servicio = new URLSearchParams(window.location.search).get('servicio');
-const selector = document.querySelector('select[name="servicio"]');
-if (servicio && selector) {
-  const opcion = Array.from(selector.options).find(
-    item => item.value === servicio
-  );
-  if (opcion) selector.value = opcion.value;
-}
-</script>
+  <footer data-i18n="footer">JP Global Travel · Asesoría de viajes independiente</footer>
+  <script>
+
+    // Traducción del formulario original; los nombres y valores enviados a Formspree
+    // permanecen intactos, incluso al cambiar el idioma visible.
+    const translations = {
+    "es": {
+        "language": "Idioma",
+        "home": "Inicio",
+        "services": "Servicios",
+        "contact": "Contacto",
+        "heroTitle": "Tu próximo viaje comienza aquí.",
+        "heroDesc": "Cuéntanos cómo imaginas tu próxima experiencia. Prepararemos una propuesta personalizada según tus preferencias, fechas y destino.",
+        "formTitle": "Solicita tu cotización",
+        "formDesc": "Completa los siguientes datos y nos pondremos en contacto contigo.",
+        "name": "Nombre y apellido *",
+        "email": "Correo electrónico *",
+        "phone": "Teléfono de contacto (opcional)",
+        "service": "¿Qué tipo de viaje buscas? *",
+        "selectOne": "Selecciona una opción",
+        "hotels": "Hoteles y resorts",
+        "flights": "Vuelos",
+        "packages": "Paquetes",
+        "cruises": "Cruceros",
+        "bespoke": "Asesoría para un viaje personalizado",
+        "origin": "Ciudad o país de salida",
+        "destination": "Destino que te gustaría visitar *",
+        "start": "Fecha estimada de inicio",
+        "end": "Fecha estimada de regreso",
+        "travellers": "Número de viajeros *",
+        "budget": "Presupuesto aproximado (opcional)",
+        "message": "Cuéntanos más sobre tu viaje",
+        "consent": "Autorizo a JP Global Travel a utilizar mis datos para responder esta solicitud de cotización. Entiendo que la información será enviada mediante Formspree. *",
+        "submit": "ENVIAR SOLICITUD",
+        "note": "Esta solicitud no constituye una reserva ni garantiza disponibilidad o tarifas. No incluyas números de pasaporte, tarjetas ni información de pago.",
+        "back": "Volver a nuestros servicios",
+        "footer": "JP Global Travel · Asesoría de viajes independiente",
+        "originPlaceholder": "Ej.: Santiago, Chile",
+        "destPlaceholder": "Ej.: Maragogi, Brasil",
+        "budgetPlaceholder": "Indica monto y moneda",
+        "messagePlaceholder": "Preferencias de alojamiento, edades de niños si corresponde, intereses, flexibilidad de fechas u otros detalles...",
+        "pageTitle": "Solicita tu viaje | JP Global Travel",
+        "description": "Solicita una cotización personalizada para tu próximo viaje con JP Global Travel.",
+        "logoBack": "JP Global Travel, volver al inicio",
+        "navLabel": "Navegación principal"
+    },
+    "pt": {
+        "language": "Idioma",
+        "home": "Início",
+        "services": "Serviços",
+        "contact": "Contato",
+        "heroTitle": "Sua próxima viagem começa aqui.",
+        "heroDesc": "Conte-nos como imagina sua próxima experiência. Prepararemos uma proposta personalizada de acordo com suas preferências, datas e destino.",
+        "formTitle": "Solicite seu orçamento",
+        "formDesc": "Preencha os dados abaixo e entraremos em contato com você.",
+        "name": "Nome e sobrenome *",
+        "email": "E-mail *",
+        "phone": "Telefone de contato (opcional)",
+        "service": "Que tipo de viagem você procura? *",
+        "selectOne": "Selecione uma opção",
+        "hotels": "Hotéis e resorts",
+        "flights": "Voos",
+        "packages": "Pacotes de viagem",
+        "cruises": "Cruzeiros",
+        "bespoke": "Consultoria para uma viagem personalizada",
+        "origin": "Cidade ou país de partida",
+        "destination": "Destino que gostaria de visitar *",
+        "start": "Data prevista de partida",
+        "end": "Data prevista de retorno",
+        "travellers": "Número de viajantes *",
+        "budget": "Orçamento aproximado (opcional)",
+        "message": "Conte-nos mais sobre sua viagem",
+        "consent": "Autorizo a JP Global Travel a utilizar meus dados para responder a esta solicitação de orçamento. Estou ciente de que as informações serão enviadas por meio do Formspree. *",
+        "submit": "ENVIAR SOLICITAÇÃO",
+        "note": "Esta solicitação não constitui uma reserva nem garante disponibilidade ou tarifas. Não inclua números de passaporte, cartões ou informações de pagamento.",
+        "back": "Voltar aos nossos serviços",
+        "footer": "JP Global Travel · Consultoria de viagens independente",
+        "originPlaceholder": "Ex.: Santiago, Chile",
+        "destPlaceholder": "Ex.: Maragogi, Brasil",
+        "budgetPlaceholder": "Informe o valor e a moeda",
+        "messagePlaceholder": "Preferências de hospedagem, idades das crianças (se houver), interesses, flexibilidade de datas ou outros detalhes...",
+        "pageTitle": "Solicite sua viagem | JP Global Travel",
+        "description": "Solicite um orçamento personalizado para sua próxima viagem com a JP Global Travel.",
+        "logoBack": "JP Global Travel, voltar ao início",
+        "navLabel": "Navegação principal"
+    },
+    "en": {
+        "language": "Language",
+        "home": "Home",
+        "services": "Services",
+        "contact": "Contact",
+        "heroTitle": "Your next journey starts here.",
+        "heroDesc": "Tell us what you envision for your next trip. We'll prepare a personalized proposal based on your preferences, travel dates and destination.",
+        "formTitle": "Request a travel quote",
+        "formDesc": "Fill in the details below and we'll get in touch with you.",
+        "name": "Full name *",
+        "email": "Email address *",
+        "phone": "Contact phone number (optional)",
+        "service": "What type of trip are you looking for? *",
+        "selectOne": "Choose an option",
+        "hotels": "Hotels and resorts",
+        "flights": "Flights",
+        "packages": "Travel packages",
+        "cruises": "Cruises",
+        "bespoke": "Personalized travel planning",
+        "origin": "Departure city or country",
+        "destination": "Where would you like to go? *",
+        "start": "Estimated departure date",
+        "end": "Estimated return date",
+        "travellers": "Number of travelers *",
+        "budget": "Approximate budget (optional)",
+        "message": "Tell us more about your trip",
+        "consent": "I authorize JP Global Travel to use my information to respond to this quote request. I understand that the information will be sent through Formspree. *",
+        "submit": "SEND REQUEST",
+        "note": "Submitting this request does not constitute a booking or guarantee availability or prices. Do not include passport numbers, card details or payment information.",
+        "back": "Back to our services",
+        "footer": "JP Global Travel · Independent travel advisory",
+        "originPlaceholder": "e.g., Santiago, Chile",
+        "destPlaceholder": "e.g., Maragogi, Brazil",
+        "budgetPlaceholder": "Enter amount and currency",
+        "messagePlaceholder": "Accommodation preferences, children's ages if applicable, interests, flexible dates or any other details...",
+        "pageTitle": "Plan your trip | JP Global Travel",
+        "description": "Request a personalized quote for your next trip with JP Global Travel.",
+        "logoBack": "JP Global Travel, back to home",
+        "navLabel": "Main navigation"
+    },
+    "fr": {
+        "language": "Langue",
+        "home": "Accueil",
+        "services": "Services",
+        "contact": "Contact",
+        "heroTitle": "Votre prochain voyage commence ici.",
+        "heroDesc": "Racontez-nous comment vous imaginez votre prochain voyage. Nous préparerons une proposition personnalisée selon vos préférences, vos dates et votre destination.",
+        "formTitle": "Demandez votre devis",
+        "formDesc": "Renseignez les informations ci-dessous et nous vous contacterons.",
+        "name": "Prénom et nom *",
+        "email": "Adresse e-mail *",
+        "phone": "Téléphone de contact (facultatif)",
+        "service": "Quel type de voyage recherchez-vous ? *",
+        "selectOne": "Sélectionnez une option",
+        "hotels": "Hôtels et resorts",
+        "flights": "Vols",
+        "packages": "Séjours et forfaits",
+        "cruises": "Croisières",
+        "bespoke": "Conseils pour un voyage sur mesure",
+        "origin": "Ville ou pays de départ",
+        "destination": "Destination souhaitée *",
+        "start": "Date de départ envisagée",
+        "end": "Date de retour envisagée",
+        "travellers": "Nombre de voyageurs *",
+        "budget": "Budget approximatif (facultatif)",
+        "message": "Parlez-nous de votre voyage",
+        "consent": "J'autorise JP Global Travel à utiliser mes données afin de répondre à cette demande de devis. Je comprends que ces informations seront transmises via Formspree. *",
+        "submit": "ENVOYER LA DEMANDE",
+        "note": "Cette demande ne constitue pas une réservation et ne garantit ni la disponibilité ni les tarifs. Ne communiquez pas de numéro de passeport, de carte bancaire ni de données de paiement.",
+        "back": "Retour à nos services",
+        "footer": "JP Global Travel · Conseil indépendant en voyages",
+        "originPlaceholder": "Ex. : Santiago, Chili",
+        "destPlaceholder": "Ex. : Maragogi, Brésil",
+        "budgetPlaceholder": "Indiquez le montant et la devise",
+        "messagePlaceholder": "Préférences d'hébergement, âge des enfants le cas échéant, centres d'intérêt, flexibilité des dates ou autres détails...",
+        "pageTitle": "Préparez votre voyage | JP Global Travel",
+        "description": "Demandez un devis personnalisé pour votre prochain voyage avec JP Global Travel.",
+        "logoBack": "JP Global Travel, revenir à l'accueil",
+        "navLabel": "Navigation principale"
+    },
+    "it": {
+        "language": "Lingua",
+        "home": "Home",
+        "services": "Servizi",
+        "contact": "Contatti",
+        "heroTitle": "Il tuo prossimo viaggio inizia qui.",
+        "heroDesc": "Raccontaci come immagini la tua prossima esperienza. Prepareremo una proposta personalizzata in base alle tue preferenze, alle date e alla destinazione.",
+        "formTitle": "Richiedi un preventivo",
+        "formDesc": "Compila i dati qui sotto e ti contatteremo.",
+        "name": "Nome e cognome *",
+        "email": "Indirizzo email *",
+        "phone": "Telefono di contatto (facoltativo)",
+        "service": "Che tipo di viaggio stai cercando? *",
+        "selectOne": "Seleziona un'opzione",
+        "hotels": "Hotel e resort",
+        "flights": "Voli",
+        "packages": "Pacchetti viaggio",
+        "cruises": "Crociere",
+        "bespoke": "Consulenza per un viaggio su misura",
+        "origin": "Città o Paese di partenza",
+        "destination": "Destinazione che vorresti visitare *",
+        "start": "Data di partenza indicativa",
+        "end": "Data di ritorno indicativa",
+        "travellers": "Numero di viaggiatori *",
+        "budget": "Budget indicativo (facoltativo)",
+        "message": "Raccontaci di più sul tuo viaggio",
+        "consent": "Autorizzo JP Global Travel a utilizzare i miei dati per rispondere a questa richiesta di preventivo. Sono consapevole che le informazioni saranno trasmesse tramite Formspree. *",
+        "submit": "INVIA LA RICHIESTA",
+        "note": "Questa richiesta non costituisce una prenotazione né garantisce disponibilità o tariffe. Non inserire numeri di passaporto, dati di carte o informazioni di pagamento.",
+        "back": "Torna ai nostri servizi",
+        "footer": "JP Global Travel · Consulenza di viaggio indipendente",
+        "originPlaceholder": "Es.: Santiago, Cile",
+        "destPlaceholder": "Es.: Maragogi, Brasile",
+        "budgetPlaceholder": "Indica importo e valuta",
+        "messagePlaceholder": "Preferenze di alloggio, età dei bambini se presenti, interessi, flessibilità delle date o altri dettagli...",
+        "pageTitle": "Organizza il tuo viaggio | JP Global Travel",
+        "description": "Richiedi un preventivo personalizzato per il tuo prossimo viaggio con JP Global Travel.",
+        "logoBack": "JP Global Travel, torna all'inizio",
+        "navLabel": "Navigazione principale"
+    }
+};
+    const languageSelect = document.getElementById('idioma');
+    function setLanguage(lang) {
+      if (!Object.prototype.hasOwnProperty.call(translations, lang)) lang = 'es';
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.title = t.pageTitle;
+      document.querySelector('meta[name="description"]').content = t.description;
+      document.querySelector('.logo a').setAttribute('aria-label', t.logoBack);
+      document.querySelector('nav').setAttribute('aria-label', t.navLabel);
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        el.textContent = t[el.getAttribute('data-i18n')];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        el.placeholder = t[el.getAttribute('data-i18n-placeholder')];
+      });
+      languageSelect.value = lang;
+    }
+    // ?lang=pt/en/fr/it permite enviar enlaces en el idioma deseado.
+    // Sin parámetro, se usa el idioma preferido del navegador.
+    const languageParam = new URLSearchParams(window.location.search).get('lang');
+    const preferredLanguage = (navigator.language || 'es').slice(0, 2).toLowerCase();
+    setLanguage(languageParam && translations[languageParam] ? languageParam : preferredLanguage);
+    languageSelect.addEventListener('change', function() {
+      setLanguage(languageSelect.value);
+    });
+
+    // Selección automática del servicio cuando se llega desde una página específica.
+    // Solo acepta opciones que ya existen en este formulario.
+    (function () {
+      const solicitado = new URLSearchParams(window.location.search).get('servicio');
+      const selector = document.getElementById('servicio');
+      if (!solicitado || !selector) return;
+      const opcion = Array.from(selector.options).find((item) => item.value === solicitado);
+      if (opcion) selector.value = opcion.value;
+    }());
+  </script>
 </body>
 </html>
