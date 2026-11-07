@@ -9,20 +9,17 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #253443; background: #fff; }
-
     /* Encabezado coherente con la página principal */
     header { background: #fff; padding: 4px 8%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; gap: 20px; flex-wrap: wrap; }
     .logo img { width: 185px; max-width: 100%; height: auto; display: block; }
     nav a { margin-left: 20px; text-decoration: none; color: #253443; font-size: 18px; }
     nav a:hover, nav a:focus-visible { color: #A58A5F; }
-
     /* Presentación */
     .intro { padding: 92px 8% 82px; background: #F8F6F1; text-align: center; }
     .eyebrow { margin: 0 0 24px; font-size: 12px; font-weight: 400; letter-spacing: 3px; color: #A58A5F; text-transform: uppercase; }
     h1, h2 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
     h1 { margin: 0 auto 23px; font-size: clamp(36px, 4.5vw, 54px); line-height: 1.2; }
     .intro p:last-child { margin: 0 auto; max-width: 680px; font-size: 17px; line-height: 1.85; color: #52606D; }
-
     /* Categorías */
     .collection { padding: 78px 8% 86px; text-align: center; }
     .collection h2 { margin: 0 0 18px; font-size: clamp(29px, 3.5vw, 38px); }
@@ -35,7 +32,6 @@
     .card h3 { margin: 0 0 14px; color: #253747; font-size: clamp(21px, 2.2vw, 26px); font-weight: 400; letter-spacing: 1px; }
     .card p { margin: 0 auto; max-width: 365px; font-size: 15px; line-height: 1.75; color: #65717B; }
     .illustration-note { margin: 21px auto 0; max-width: 650px; font-size: 12px; line-height: 1.55; color: #7B858B; }
-
     /* Área preparada para ampliar el catálogo cuando se confirme disponibilidad */
     .future { padding: 66px 8% 77px; background: #F8F6F1; text-align: center; }
     .future .line { width: 56px; height: 2px; background: #B6A27C; margin: 0 auto 24px; }
@@ -44,7 +40,6 @@
     .contact-link { display: inline-block; margin-top: 28px; padding: 15px 30px; background: #253443; color: white; text-decoration: none; font-size: 12px; letter-spacing: 1.2px; }
     .contact-link:hover, .contact-link:focus-visible { background: #3C5365; }
     footer { text-align: center; background: #253443; color: white; padding: 35px 15px; font-size: 12px; }
-
     @media (max-width: 700px) {
       header { padding: 8px 5% 14px; flex-direction: column; gap: 4px; }
       .logo img { width: 115px; }
@@ -57,73 +52,289 @@
       .card-content { padding: 26px 23px 33px; }
       .future { padding: 60px 7% 67px; }
     }
+    /* Selector de idioma: mismo estilo discreto que la portada. */
+    nav { display: flex; align-items: center; justify-content: flex-end; gap: 20px; flex-wrap: wrap; }
+    nav a { margin-left: 0; }
+    .language-picker { display: inline-flex; align-items: center; gap: 5px; color: #B69A63; white-space: nowrap; }
+    .language-picker select { border: 1px solid #E7E1D7; border-radius: 4px; background: #fff; color: #253443; padding: 7px 5px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; cursor: pointer; }
+    .language-picker select:focus-visible { outline: 2px solid #B6A27C; outline-offset: 2px; }
+    @media (max-width: 700px) {
+      nav { justify-content: center; gap: 13px; }
+      .language-picker { gap: 3px; }
+      .language-picker select { padding: 5px 3px; font-size: 12px; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo"><a href="index.html#inicio" aria-label="JP Global Travel, volver al inicio"><img src="Logotipo JP Global Travel con Globo.png" alt="JP Global Travel"></a></div>
-    <nav aria-label="Navegación principal">
-      <a href="index.html#inicio">Inicio</a>
-      <a href="index.html#servicios">Servicios</a>
-      <a href="index.html#contacto">Contacto</a>
+    <div class="logo"><a href="index.html#inicio" data-lang-link data-i18n-aria="homeAria" aria-label="JP Global Travel, volver al inicio"><img src="Logotipo JP Global Travel con Globo.png" alt="JP Global Travel"></a></div>
+    <nav data-i18n-aria="navAria" aria-label="Navegación principal">
+      <a href="index.html#inicio" data-lang-link data-i18n="navHome">Inicio</a>
+      <a href="index.html#servicios" data-lang-link data-i18n="navServices">Servicios</a>
+      <a href="index.html#contacto" data-lang-link data-i18n="navContact">Contacto</a>
+      <label class="language-picker" for="site-language">
+        <span aria-hidden="true">🌐</span>
+        <select id="site-language" aria-label="Seleccionar idioma / Select language">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="pt">PT</option>
+          <option value="fr">FR</option>
+          <option value="it">IT</option>
+        </select>
+      </label>
     </nav>
   </header>
-
   <main>
     <section class="intro" aria-labelledby="titulo-pagina">
       <p class="eyebrow">JP Global Travel</p>
-      <h1 id="titulo-pagina">Hoteles y Resorts</h1>
-      <p>Cada estadía forma parte de la experiencia. Descubre distintas maneras de alojarte y comienza a imaginar tu próximo viaje.</p>
+      <h1 id="titulo-pagina" data-i18n="title">Hoteles y Resorts</h1>
+      <p data-i18n="intro">Cada estadía forma parte de la experiencia. Descubre distintas maneras de alojarte y comienza a imaginar tu próximo viaje.</p>
     </section>
-
     <section class="collection" aria-labelledby="titulo-categorias">
-      <h2 id="titulo-categorias">Una estadía para cada viaje.</h2>
-      <p class="section-text">Desde el ritmo de una ciudad hasta la calma junto al mar, explora el estilo de alojamiento que mejor acompaña tu próxima experiencia.</p>
+      <h2 id="titulo-categorias" data-i18n="sectionTitle">Una estadía para cada viaje.</h2>
+      <p class="section-text" data-i18n="sectionText">Desde el ritmo de una ciudad hasta la calma junto al mar, explora el estilo de alojamiento que mejor acompaña tu próxima experiencia.</p>
       <div class="cards">
         <article class="card">
-          <img src="hotel-urbano.jpg" alt="Lobby elegante de un hotel urbano con vista a los edificios de una ciudad" width="1200" height="900" loading="lazy">
+          <img src="hotel-urbano.jpg" alt="Lobby elegante de un hotel urbano con vista a los edificios de una ciudad" data-i18n-alt="urbanAlt" width="1200" height="900" loading="lazy">
           <div class="card-content">
-            <h3>Hoteles urbanos</h3>
-            <p>Comodidad y ubicación para descubrir grandes ciudades a tu propio ritmo.</p>
+            <h3 data-i18n="urbanTitle">Hoteles urbanos</h3>
+            <p data-i18n="urbanText">Comodidad y ubicación para descubrir grandes ciudades a tu propio ritmo.</p>
           </div>
           <!-- Espacio para incorporar hoteles urbanos concretos más adelante. -->
         </article>
         <article class="card">
-          <img src="resort-mar.jpg" alt="Resort de playa con piscina infinita, palmeras y vista al océano" width="1200" height="900" loading="lazy">
+          <img src="resort-mar.jpg" alt="Resort de playa con piscina infinita, palmeras y vista al océano" data-i18n-alt="seasideAlt" width="1200" height="900" loading="lazy">
           <div class="card-content">
-            <h3>Resorts frente al mar</h3>
-            <p>Descanso, paisajes y días para disfrutar junto al océano.</p>
+            <h3 data-i18n="seasideTitle">Resorts frente al mar</h3>
+            <p data-i18n="seasideText">Descanso, paisajes y días para disfrutar junto al océano.</p>
           </div>
           <!-- Espacio para incorporar resorts concretos más adelante. -->
         </article>
         <article class="card">
-          <img src="hotel-boutique.jpg" alt="Salón acogedor de hotel boutique con arcos de piedra y mobiliario artesanal" width="1200" height="900" loading="lazy">
+          <img src="hotel-boutique.jpg" alt="Salón acogedor de hotel boutique con arcos de piedra y mobiliario artesanal" data-i18n-alt="boutiqueAlt" width="1200" height="900" loading="lazy">
           <div class="card-content">
-            <h3>Hoteles boutique</h3>
-            <p>Espacios con carácter, atención cercana y detalles que hacen la diferencia.</p>
+            <h3 data-i18n="boutiqueTitle">Hoteles boutique</h3>
+            <p data-i18n="boutiqueText">Espacios con carácter, atención cercana y detalles que hacen la diferencia.</p>
           </div>
           <!-- Espacio para incorporar hoteles boutique concretos más adelante. -->
         </article>
         <article class="card">
-          <img src="escapada-especial.jpg" alt="Alojamiento exclusivo frente a un lago y montañas para una escapada de naturaleza" width="1200" height="900" loading="lazy">
+          <img src="escapada-especial.jpg" alt="Alojamiento exclusivo frente a un lago y montañas para una escapada de naturaleza" data-i18n-alt="escapesAlt" width="1200" height="900" loading="lazy">
           <div class="card-content">
-            <h3>Escapadas especiales</h3>
-            <p>Lugares para desconectarse, celebrar o vivir algo diferente.</p>
+            <h3 data-i18n="escapesTitle">Escapadas especiales</h3>
+            <p data-i18n="escapesText">Lugares para desconectarse, celebrar o vivir algo diferente.</p>
           </div>
           <!-- Espacio para incorporar alojamientos de escapadas especiales más adelante. -->
         </article>
       </div>
-      <p class="illustration-note">Imágenes ilustrativas de estilos de alojamiento; no corresponden a hoteles específicos.</p>
+      <p class="illustration-note" data-i18n="note">Imágenes ilustrativas de estilos de alojamiento; no corresponden a hoteles específicos.</p>
     </section>
-
     <section class="future" aria-labelledby="titulo-futuro">
       <div class="line" aria-hidden="true"></div>
-     <h2 id="titulo-futuro">Diseñemos tu próxima estadía.</h2>
-<p>Cuéntanos dónde te gustaría alojarte. Prepararemos una propuesta personalizada según tus fechas, preferencias y estilo de viaje.</p>
-     <a class="contact-link" href="cotizacion.html?servicio=Hoteles%20y%20resorts">SOLICITAR COTIZACIÓN</a>
+     <h2 id="titulo-futuro" data-i18n="futureTitle">Diseñemos tu próxima estadía.</h2>
+ <p data-i18n="futureText">Cuéntanos dónde te gustaría alojarte. Prepararemos una propuesta personalizada según tus fechas, preferencias y estilo de viaje.</p>
+     <a class="contact-link" href="cotizacion.html?servicio=Hoteles%20y%20resorts" data-lang-link data-i18n="quoteCta">SOLICITAR COTIZACIÓN</a>
     </section>
   </main>
+  <footer data-i18n="footer">JP Global Travel · Asesoría de viajes independiente</footer>
+  <script>
+    // Igual que la portada, recordamos la selección de idioma y respetamos ?lang=...
+    const jpHotelTranslations = {
+  "es": {
+    "navHome": "Inicio",
+    "navServices": "Servicios",
+    "navContact": "Contacto",
+    "pageTitle": "Hoteles y Resorts | JP Global Travel",
+    "description": "Descubre las propuestas de Hoteles y Resorts de JP Global Travel: hoteles urbanos, resorts frente al mar, hoteles boutique y escapadas especiales.",
+    "homeAria": "JP Global Travel, volver al inicio",
+    "navAria": "Navegación principal",
+    "title": "Hoteles y Resorts",
+    "intro": "Cada estadía forma parte de la experiencia. Descubre distintas maneras de alojarte y comienza a imaginar tu próximo viaje.",
+    "sectionTitle": "Una estadía para cada viaje.",
+    "sectionText": "Desde el ritmo de una ciudad hasta la calma junto al mar, explora el estilo de alojamiento que mejor acompaña tu próxima experiencia.",
+    "urbanTitle": "Hoteles urbanos",
+    "urbanText": "Comodidad y ubicación para descubrir grandes ciudades a tu propio ritmo.",
+    "seasideTitle": "Resorts frente al mar",
+    "seasideText": "Descanso, paisajes y días para disfrutar junto al océano.",
+    "boutiqueTitle": "Hoteles boutique",
+    "boutiqueText": "Espacios con carácter, atención cercana y detalles que hacen la diferencia.",
+    "escapesTitle": "Escapadas especiales",
+    "escapesText": "Lugares para desconectarse, celebrar o vivir algo diferente.",
+    "urbanAlt": "Lobby elegante de un hotel urbano con vista a los edificios de una ciudad",
+    "seasideAlt": "Resort de playa con piscina infinita, palmeras y vista al océano",
+    "boutiqueAlt": "Salón acogedor de hotel boutique con arcos de piedra y mobiliario artesanal",
+    "escapesAlt": "Alojamiento exclusivo frente a un lago y montañas para una escapada de naturaleza",
+    "note": "Imágenes ilustrativas de estilos de alojamiento; no corresponden a hoteles específicos.",
+    "futureTitle": "Diseñemos tu próxima estadía.",
+    "futureText": "Cuéntanos dónde te gustaría alojarte. Prepararemos una propuesta personalizada según tus fechas, preferencias y estilo de viaje.",
+    "quoteCta": "SOLICITAR COTIZACIÓN",
+    "footer": "JP Global Travel · Asesoría de viajes independiente"
+  },
+  "en": {
+    "navHome": "Home",
+    "navServices": "Services",
+    "navContact": "Contact",
+    "pageTitle": "Hotels & Resorts | JP Global Travel",
+    "description": "Explore JP Global Travel hotels and resorts: city hotels, beachfront resorts, boutique stays and special getaways.",
+    "homeAria": "JP Global Travel, back to home",
+    "navAria": "Main navigation",
+    "title": "Hotels & Resorts",
+    "intro": "Every stay is part of the experience. Discover different ways to stay and start imagining your next journey.",
+    "sectionTitle": "A stay for every journey.",
+    "sectionText": "From the energy of the city to the tranquility of the coast, explore the accommodation style that best suits your next experience.",
+    "urbanTitle": "City hotels",
+    "urbanText": "Comfort and convenience to discover great cities at your own pace.",
+    "seasideTitle": "Beachfront resorts",
+    "seasideText": "Relaxing days, beautiful scenery and time to enjoy by the ocean.",
+    "boutiqueTitle": "Boutique hotels",
+    "boutiqueText": "Distinctive spaces, personal service and thoughtful details that make a difference.",
+    "escapesTitle": "Special getaways",
+    "escapesText": "Places to unwind, celebrate or experience something different.",
+    "urbanAlt": "Elegant city hotel lobby overlooking urban buildings",
+    "seasideAlt": "Beach resort with an infinity pool, palm trees and ocean views",
+    "boutiqueAlt": "Welcoming boutique hotel lounge with stone arches and handcrafted furnishings",
+    "escapesAlt": "Exclusive lakeside accommodation with mountain views for a nature getaway",
+    "note": "Images illustrate accommodation styles and do not represent specific hotels.",
+    "futureTitle": "Let’s design your next stay.",
+    "futureText": "Tell us where you would like to stay. We will prepare a personalized proposal based on your dates, preferences and travel style.",
+    "quoteCta": "REQUEST A QUOTE",
+    "footer": "JP Global Travel · Independent travel advisory"
+  },
+  "pt": {
+    "navHome": "Início",
+    "navServices": "Serviços",
+    "navContact": "Contato",
+    "pageTitle": "Hotéis e Resorts | JP Global Travel",
+    "description": "Conheça as opções de hotéis e resorts da JP Global Travel: hotéis urbanos, resorts à beira-mar, hotéis boutique e escapadas especiais.",
+    "homeAria": "JP Global Travel, voltar ao início",
+    "navAria": "Navegação principal",
+    "title": "Hotéis e Resorts",
+    "intro": "Cada estadia faz parte da experiência. Descubra diferentes maneiras de se hospedar e comece a imaginar sua próxima viagem.",
+    "sectionTitle": "Uma estadia para cada viagem.",
+    "sectionText": "Do ritmo da cidade à tranquilidade à beira-mar, explore o estilo de hospedagem que mais combina com sua próxima experiência.",
+    "urbanTitle": "Hotéis urbanos",
+    "urbanText": "Conforto e boa localização para descobrir grandes cidades no seu ritmo.",
+    "seasideTitle": "Resorts à beira-mar",
+    "seasideText": "Descanso, paisagens e dias para aproveitar junto ao oceano.",
+    "boutiqueTitle": "Hotéis boutique",
+    "boutiqueText": "Espaços cheios de personalidade, atendimento próximo e detalhes que fazem a diferença.",
+    "escapesTitle": "Escapadas especiais",
+    "escapesText": "Lugares para desconectar, celebrar ou viver algo diferente.",
+    "urbanAlt": "Lobby elegante de hotel urbano com vista para os prédios de uma cidade",
+    "seasideAlt": "Resort de praia com piscina de borda infinita, palmeiras e vista para o mar",
+    "boutiqueAlt": "Sala aconchegante de hotel boutique com arcos de pedra e móveis artesanais",
+    "escapesAlt": "Hospedagem exclusiva à beira de um lago e montanhas para uma viagem na natureza",
+    "note": "Imagens ilustrativas de estilos de hospedagem; não representam hotéis específicos.",
+    "futureTitle": "Vamos planejar sua próxima estadia.",
+    "futureText": "Conte onde você gostaria de se hospedar. Prepararemos uma proposta personalizada de acordo com suas datas, preferências e estilo de viagem.",
+    "quoteCta": "SOLICITAR ORÇAMENTO",
+    "footer": "JP Global Travel · Consultoria de viagens independente"
+  },
+  "fr": {
+    "navHome": "Accueil",
+    "navServices": "Services",
+    "navContact": "Contact",
+    "pageTitle": "Hôtels et Resorts | JP Global Travel",
+    "description": "Découvrez les hôtels et resorts de JP Global Travel : hôtels en ville, resorts en bord de mer, hôtels-boutiques et escapades.",
+    "homeAria": "JP Global Travel, retour à l’accueil",
+    "navAria": "Navigation principale",
+    "title": "Hôtels et Resorts",
+    "intro": "Chaque séjour fait partie de l’expérience. Découvrez différentes façons de vous héberger et commencez à imaginer votre prochain voyage.",
+    "sectionTitle": "Un séjour pour chaque voyage.",
+    "sectionText": "De l’effervescence des villes à la tranquillité du bord de mer, explorez le type d’hébergement qui correspond le mieux à votre prochaine expérience.",
+    "urbanTitle": "Hôtels en ville",
+    "urbanText": "Confort et emplacement idéal pour découvrir les grandes villes à votre rythme.",
+    "seasideTitle": "Resorts en bord de mer",
+    "seasideText": "Détente, paysages et journées à savourer au bord de l’océan.",
+    "boutiqueTitle": "Hôtels-boutiques",
+    "boutiqueText": "Des lieux de caractère, un accueil attentionné et des détails qui font la différence.",
+    "escapesTitle": "Escapades d’exception",
+    "escapesText": "Des lieux pour se ressourcer, célébrer ou vivre une expérience différente.",
+    "urbanAlt": "Hall élégant d’un hôtel en ville avec vue sur les immeubles",
+    "seasideAlt": "Resort en bord de plage avec piscine à débordement, palmiers et vue sur l’océan",
+    "boutiqueAlt": "Salon chaleureux d’un hôtel-boutique avec arches en pierre et mobilier artisanal",
+    "escapesAlt": "Hébergement exclusif près d’un lac et des montagnes pour une escapade nature",
+    "note": "Images illustrant des styles d’hébergement ; elles ne représentent pas des hôtels précis.",
+    "futureTitle": "Imaginons votre prochain séjour.",
+    "futureText": "Dites-nous où vous aimeriez séjourner. Nous préparerons une proposition personnalisée selon vos dates, vos préférences et votre façon de voyager.",
+    "quoteCta": "DEMANDER UN DEVIS",
+    "footer": "JP Global Travel · Conseil en voyages indépendant"
+  },
+  "it": {
+    "navHome": "Home",
+    "navServices": "Servizi",
+    "navContact": "Contatti",
+    "pageTitle": "Hotel e Resort | JP Global Travel",
+    "description": "Scopri le proposte di JP Global Travel: hotel in città, resort sul mare, boutique hotel e soggiorni speciali.",
+    "homeAria": "JP Global Travel, torna alla pagina iniziale",
+    "navAria": "Navigazione principale",
+    "title": "Hotel e Resort",
+    "intro": "Ogni soggiorno fa parte dell’esperienza. Scopri diversi modi di alloggiare e inizia a immaginare il tuo prossimo viaggio.",
+    "sectionTitle": "Un soggiorno per ogni viaggio.",
+    "sectionText": "Dal ritmo della città alla quiete del mare, esplora la tipologia di alloggio che meglio accompagna la tua prossima esperienza.",
+    "urbanTitle": "Hotel in città",
+    "urbanText": "Comfort e posizione ideale per scoprire le grandi città con i tuoi tempi.",
+    "seasideTitle": "Resort sul mare",
+    "seasideText": "Relax, panorami e giornate da vivere accanto all’oceano.",
+    "boutiqueTitle": "Boutique hotel",
+    "boutiqueText": "Ambienti ricchi di carattere, accoglienza attenta e dettagli che fanno la differenza.",
+    "escapesTitle": "Soggiorni speciali",
+    "escapesText": "Luoghi dove staccare la spina, festeggiare o vivere qualcosa di diverso.",
+    "urbanAlt": "Elegante hall di un hotel in città con vista sui palazzi",
+    "seasideAlt": "Resort sulla spiaggia con piscina a sfioro, palme e vista sull’oceano",
+    "boutiqueAlt": "Accogliente salotto di un boutique hotel con archi in pietra e arredi artigianali",
+    "escapesAlt": "Alloggio esclusivo vicino a un lago e alle montagne per un soggiorno nella natura",
+    "note": "Immagini illustrative delle tipologie di alloggio; non rappresentano hotel specifici.",
+    "futureTitle": "Progettiamo il tuo prossimo soggiorno.",
+    "futureText": "Raccontaci dove vorresti soggiornare. Prepareremo una proposta personalizzata in base alle tue date, preferenze e al tuo stile di viaggio.",
+    "quoteCta": "RICHIEDI UN PREVENTIVO",
+    "footer": "JP Global Travel · Consulenza di viaggio indipendente"
+  }
+};
+    const jpLanguageStorageKey = 'jpglobaltravel-language';
+    const allowedLanguages = ['es', 'en', 'pt', 'fr', 'it'];
+    const languageSelector = document.getElementById('site-language');
+    const paramLang = new URLSearchParams(window.location.search).get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem(jpLanguageStorageKey); } catch (error) { /* navegación privada */ }
+    const initialLang = allowedLanguages.includes(paramLang) ? paramLang :
+      (allowedLanguages.includes(savedLang) ? savedLang : 'es');
 
-  <footer>JP Global Travel · Asesoría de viajes independiente</footer>
+    // Conserva todos los destinos originales, incluso los parámetros del formulario.
+    document.querySelectorAll('[data-lang-link]').forEach(link => {
+      link.dataset.originalHref = link.getAttribute('href');
+    });
+    function setSiteLanguage(lang) {
+      if (!allowedLanguages.includes(lang)) lang = 'es';
+      const t = jpHotelTranslations[lang];
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+      document.title = t.pageTitle;
+      const description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute('content', t.description);
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const value = t[element.dataset.i18n];
+        if (typeof value === 'string') element.textContent = value;
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(element => {
+        const value = t[element.dataset.i18nAlt];
+        if (typeof value === 'string') element.setAttribute('alt', value);
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+        const value = t[element.dataset.i18nAria];
+        if (typeof value === 'string') element.setAttribute('aria-label', value);
+      });
+      document.querySelectorAll('[data-lang-link]').forEach(link => {
+        const original = link.dataset.originalHref;
+        const url = new URL(original, window.location.href);
+        if (lang === 'es') url.searchParams.delete('lang');
+        else url.searchParams.set('lang', lang);
+        link.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
+      });
+      languageSelector.value = lang;
+      try { localStorage.setItem(jpLanguageStorageKey, lang); } catch (error) { /* navegación privada */ }
+    }
+    languageSelector.addEventListener('change', event => setSiteLanguage(event.target.value));
+    setSiteLanguage(initialLang);
+  </script>
 </body>
 </html>
