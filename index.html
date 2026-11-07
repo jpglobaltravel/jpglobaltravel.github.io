@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JP Global Travel | Experiencias de viaje</title>
+<meta name="description" content="Experiencias de viaje, hoteles, vuelos, paquetes y cruceros con asesoría personalizada de JP Global Travel.">
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#253443;background:#fff}
@@ -62,55 +63,242 @@ nav a { margin-left: 0; font-size: 14px; letter-spacing: 0.3px; }
 .hero p { font-size: 15px; line-height: 1.55; max-width: 300px; }
 
 }
+
+/* Selector discreto de idioma, integrado con el diseño original. */
+nav{display:flex;align-items:center;justify-content:flex-end;gap:20px;flex-wrap:wrap}
+nav a{margin-left:0}
+.language-picker{display:inline-flex;align-items:center;gap:5px;color:#B69A63;white-space:nowrap}
+.language-picker select{border:1px solid #E7E1D7;border-radius:4px;background:#fff;color:#253443;padding:7px 5px;font-family:Arial,Helvetica,sans-serif;font-size:12px;cursor:pointer}
+.language-picker select:focus-visible{outline:2px solid #B6A27C;outline-offset:2px}
+@media(max-width:600px){nav{justify-content:center;gap:13px}.language-picker{gap:3px}.language-picker select{padding:5px 3px;font-size:12px}}
 </style>
 </head>
 <body>
 <header>
 <div class="logo"><img src="Logotipo JP Global Travel con Globo.png" alt="JP Global Travel" style="width:160px;max-width:100%;height:auto;"></div>
-<nav><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></nav>
+<nav aria-label="Navegación principal">
+  <a href="#inicio" data-i18n="navHome">Inicio</a>
+  <a href="#servicios" data-i18n="navServices">Servicios</a>
+  <a href="#contacto" data-i18n="navContact">Contacto</a>
+  <label class="language-picker" for="site-language">
+    <span aria-hidden="true">🌐</span>
+    <select id="site-language" aria-label="Seleccionar idioma / Select language">
+      <option value="es" selected>ES</option>
+      <option value="en">EN</option>
+      <option value="pt">PT</option>
+      <option value="fr">FR</option>
+      <option value="it">IT</option>
+    </select>
+  </label>
+</nav>
 </header>
 <main>
 <div class="hero" id="inicio">
-<h1>El mundo comienza aquí.</h1>
-<p>Experiencias de viaje diseñadas para descubrir nuevos horizontes.</p>
-<a class="btn" href="#servicios">DESCUBRE NUESTROS SERVICIOS</a>
+<h1 data-i18n="heroTitle">El mundo comienza aquí.</h1>
+<p data-i18n="heroSubtitle">Experiencias de viaje diseñadas para descubrir nuevos horizontes.</p>
+<a class="btn" href="#servicios" data-i18n="heroCta">DESCUBRE NUESTROS SERVICIOS</a>
 </div>
 
 <section id="nosotros" style="background:#F8F6F1; padding:80px 8%; text-align:center;">
   <p style="color:#A58A5F; font-size:13px; letter-spacing:3px; margin-bottom:20px;">JP GLOBAL TRAVEL</p>
   <h2 style="font-family:Georgia,serif; font-size:clamp(30px,4vw,44px); font-weight:normal; color:#253443; margin-bottom:25px;">
-    Más que destinos, experiencias.
+    <span data-i18n="aboutTitle">Más que destinos, experiencias.</span>
   </h2>
 
-<p style="max-width:700px; margin:0 auto; font-size:17px; line-height:1.9; color:#43505B;">JP Global Travel nace de una pasión auténtica por conocer el mundo y de más de 15 años de trayectoria en hotelería. La hospitalidad, el cuidado de los detalles y el trato cercano son parte de nuestra esencia y de la manera en que entendemos el arte de viajar.</p>
+<p style="max-width:700px; margin:0 auto; font-size:17px; line-height:1.9; color:#43505B;" data-i18n="aboutText">JP Global Travel nace de una pasión auténtica por conocer el mundo y de más de 15 años de trayectoria en hotelería. La hospitalidad, el cuidado de los detalles y el trato cercano son parte de nuestra esencia y de la manera en que entendemos el arte de viajar.</p>
 
 </section>
 <section id="servicios">
-<h2>Tu próximo destino, nuestra inspiración.</h2>
+<h2 data-i18n="servicesTitle">Tu próximo destino, nuestra inspiración.</h2>
 
-<p style="max-width:700px; margin:20px auto 40px; text-align:center; font-size:17px; line-height:1.8; color:#52606D;">Cada destino abre un mundo de posibilidades. Explora nuestras opciones de hoteles, vuelos, paquetes y cruceros, y comienza a dar forma a tu próxima aventura, descubriendo nuevas maneras de recorrer el mundo.</p>
+<p style="max-width:700px; margin:20px auto 40px; text-align:center; font-size:17px; line-height:1.8; color:#52606D;" data-i18n="servicesText">Cada destino abre un mundo de posibilidades. Explora nuestras opciones de hoteles, vuelos, paquetes y cruceros, y comienza a dar forma a tu próxima aventura, descubriendo nuevas maneras de recorrer el mundo.</p>
 
 <div class="cards">
-<a class="card" href="hoteles.html" style="display:block;text-decoration:none;color:inherit;"><h3>Hoteles y Resorts</h3><p>Alojamientos para cada estilo de viaje.</p></a>
+<a class="card" href="hoteles.html" data-lang-link style="display:block;text-decoration:none;color:inherit;"><h3 data-i18n="hotelsTitle">Hoteles y Resorts</h3><p data-i18n="hotelsText">Alojamientos para cada estilo de viaje.</p></a>
 
-<a class="card" href="vuelos.html" style="display:block;text-decoration:none;color:inherit;"><h3>Vuelos</h3><p>Nuevos destinos, nuevas posibilidades.</p></a>
+<a class="card" href="vuelos.html" data-lang-link style="display:block;text-decoration:none;color:inherit;"><h3 data-i18n="flightsTitle">Vuelos</h3><p data-i18n="flightsText">Nuevos destinos, nuevas posibilidades.</p></a>
 
-<a class="card" href="paquetes.html" style="display:block;text-decoration:none;color:inherit;"><h3>Paquetes</h3><p>Experiencias para descubrir el mundo.</p></a>
+<a class="card" href="paquetes.html" data-lang-link style="display:block;text-decoration:none;color:inherit;"><h3 data-i18n="packagesTitle">Paquetes</h3><p data-i18n="packagesText">Experiencias para descubrir el mundo.</p></a>
 
-<a class="card" href="cruceros.html" style="display:block;text-decoration:none;color:inherit;"><h3>Cruceros</h3><p>Una manera diferente de explorar nuevos horizontes.</p></a>
+<a class="card" href="cruceros.html" data-lang-link style="display:block;text-decoration:none;color:inherit;"><h3 data-i18n="cruisesTitle">Cruceros</h3><p data-i18n="cruisesText">Una manera diferente de explorar nuevos horizontes.</p></a>
 
 </div>
 </section>
 <section id="contacto">
-<h2>Comencemos a planificar.</h2>
-<p>Cuéntanos cuál es tu próximo destino.</p>
-<a class="btn" href="cotizacion.html">SOLICITAR COTIZACIÓN</a>
+<h2 data-i18n="contactTitle">Comencemos a planificar.</h2>
+<p data-i18n="contactText">Cuéntanos cuál es tu próximo destino.</p>
+<a class="btn" href="cotizacion.html" data-lang-link data-i18n="quoteCta">SOLICITAR COTIZACIÓN</a>
 <p style="margin-top:22px;"><a href="mailto:contacto@jpglobaltravel.com" style="color:#244b73; text-decoration:none;">contacto@jpglobaltravel.com</a></p>
 
 </section>
 </main>
-<footer>JP Global Travel · Asesoría de viajes independiente</footer>
+<footer data-i18n="footer">JP Global Travel · Asesoría de viajes independiente</footer>
 
 
+
+<script>
+// Traducciones integradas: no dependen de servicios externos ni afectan los formularios.
+const jpTranslations = {
+  "es": {
+    "navHome": "Inicio",
+    "navServices": "Servicios",
+    "navContact": "Contacto",
+    "heroTitle": "El mundo comienza aquí.",
+    "heroSubtitle": "Experiencias de viaje diseñadas para descubrir nuevos horizontes.",
+    "heroCta": "DESCUBRE NUESTROS SERVICIOS",
+    "aboutTitle": "Más que destinos, experiencias.",
+    "aboutText": "JP Global Travel nace de una pasión auténtica por conocer el mundo y de más de 15 años de trayectoria en hotelería. La hospitalidad, el cuidado de los detalles y el trato cercano son parte de nuestra esencia y de la manera en que entendemos el arte de viajar.",
+    "servicesTitle": "Tu próximo destino, nuestra inspiración.",
+    "servicesText": "Cada destino abre un mundo de posibilidades. Explora nuestras opciones de hoteles, vuelos, paquetes y cruceros, y comienza a dar forma a tu próxima aventura, descubriendo nuevas maneras de recorrer el mundo.",
+    "hotelsTitle": "Hoteles y Resorts",
+    "hotelsText": "Alojamientos para cada estilo de viaje.",
+    "flightsTitle": "Vuelos",
+    "flightsText": "Nuevos destinos, nuevas posibilidades.",
+    "packagesTitle": "Paquetes",
+    "packagesText": "Experiencias para descubrir el mundo.",
+    "cruisesTitle": "Cruceros",
+    "cruisesText": "Una manera diferente de explorar nuevos horizontes.",
+    "contactTitle": "Comencemos a planificar.",
+    "contactText": "Cuéntanos cuál es tu próximo destino.",
+    "quoteCta": "SOLICITAR COTIZACIÓN",
+    "footer": "JP Global Travel · Asesoría de viajes independiente",
+    "pageTitle": "JP Global Travel | Experiencias de viaje",
+    "description": "Experiencias de viaje, hoteles, vuelos, paquetes y cruceros con asesoría personalizada de JP Global Travel."
+  },
+  "en": {
+    "navHome": "Home",
+    "navServices": "Services",
+    "navContact": "Contact",
+    "heroTitle": "The world begins here.",
+    "heroSubtitle": "Travel experiences designed to discover new horizons.",
+    "heroCta": "DISCOVER OUR SERVICES",
+    "aboutTitle": "More than destinations, experiences.",
+    "aboutText": "JP Global Travel was born from a genuine passion for exploring the world and more than 15 years of experience in hospitality. A warm, personal approach, thoughtful attention to detail and a commitment to hospitality are at the heart of who we are and how we see the art of travel.",
+    "servicesTitle": "Your next destination, our inspiration.",
+    "servicesText": "Every destination opens up a world of possibilities. Explore our hotels, flights, travel packages and cruises, and start shaping your next adventure as you discover new ways to see the world.",
+    "hotelsTitle": "Hotels & Resorts",
+    "hotelsText": "Accommodation for every travel style.",
+    "flightsTitle": "Flights",
+    "flightsText": "New destinations, new possibilities.",
+    "packagesTitle": "Travel Packages",
+    "packagesText": "Experiences to discover the world.",
+    "cruisesTitle": "Cruises",
+    "cruisesText": "A different way to explore new horizons.",
+    "contactTitle": "Let's start planning.",
+    "contactText": "Tell us where you would like to go next.",
+    "quoteCta": "REQUEST A QUOTE",
+    "footer": "JP Global Travel · Independent travel advisory",
+    "pageTitle": "JP Global Travel | Travel experiences",
+    "description": "Discover hotels, flights, travel packages and cruises with personalized travel advice from JP Global Travel."
+  },
+  "pt": {
+    "navHome": "Início",
+    "navServices": "Serviços",
+    "navContact": "Contato",
+    "heroTitle": "O mundo começa aqui.",
+    "heroSubtitle": "Experiências de viagem pensadas para descobrir novos horizontes.",
+    "heroCta": "CONHEÇA NOSSOS SERVIÇOS",
+    "aboutTitle": "Mais do que destinos, experiências.",
+    "aboutText": "A JP Global Travel nasceu de uma paixão genuína por conhecer o mundo e de mais de 15 anos de experiência em hotelaria. A hospitalidade, a atenção aos detalhes e o atendimento próximo fazem parte da nossa essência e da maneira como entendemos a arte de viajar.",
+    "servicesTitle": "Seu próximo destino, nossa inspiração.",
+    "servicesText": "Cada destino abre um mundo de possibilidades. Conheça nossas opções de hotéis, voos, pacotes e cruzeiros e comece a planejar sua próxima aventura, descobrindo novas maneiras de explorar o mundo.",
+    "hotelsTitle": "Hotéis e Resorts",
+    "hotelsText": "Hospedagens para cada estilo de viagem.",
+    "flightsTitle": "Voos",
+    "flightsText": "Novos destinos, novas possibilidades.",
+    "packagesTitle": "Pacotes",
+    "packagesText": "Experiências para descobrir o mundo.",
+    "cruisesTitle": "Cruzeiros",
+    "cruisesText": "Uma maneira diferente de explorar novos horizontes.",
+    "contactTitle": "Vamos começar a planejar.",
+    "contactText": "Conte para nós qual será seu próximo destino.",
+    "quoteCta": "SOLICITAR ORÇAMENTO",
+    "footer": "JP Global Travel · Consultoria de viagens independente",
+    "pageTitle": "JP Global Travel | Experiências de viagem",
+    "description": "Conheça hotéis, voos, pacotes e cruzeiros com consultoria personalizada da JP Global Travel."
+  },
+  "fr": {
+    "navHome": "Accueil",
+    "navServices": "Services",
+    "navContact": "Contact",
+    "heroTitle": "Le monde commence ici.",
+    "heroSubtitle": "Des expériences de voyage conçues pour découvrir de nouveaux horizons.",
+    "heroCta": "DÉCOUVREZ NOS SERVICES",
+    "aboutTitle": "Bien plus que des destinations, des expériences.",
+    "aboutText": "JP Global Travel est née d’une véritable passion pour la découverte du monde et de plus de 15 ans d’expérience dans l’hôtellerie. L’hospitalité, le souci du détail et une approche humaine et attentive sont au cœur de notre identité et de notre vision de l’art de voyager.",
+    "servicesTitle": "Votre prochaine destination, notre inspiration.",
+    "servicesText": "Chaque destination ouvre un monde de possibilités. Découvrez nos offres d’hôtels, de vols, de séjours et de croisières, et commencez à imaginer votre prochaine aventure en explorant de nouvelles façons de parcourir le monde.",
+    "hotelsTitle": "Hôtels et Resorts",
+    "hotelsText": "Des hébergements pour tous les styles de voyage.",
+    "flightsTitle": "Vols",
+    "flightsText": "De nouvelles destinations, de nouvelles possibilités.",
+    "packagesTitle": "Séjours",
+    "packagesText": "Des expériences pour découvrir le monde.",
+    "cruisesTitle": "Croisières",
+    "cruisesText": "Une autre façon d’explorer de nouveaux horizons.",
+    "contactTitle": "Commençons à organiser votre voyage.",
+    "contactText": "Parlez-nous de votre prochaine destination.",
+    "quoteCta": "DEMANDER UN DEVIS",
+    "footer": "JP Global Travel · Conseil en voyages indépendant",
+    "pageTitle": "JP Global Travel | Expériences de voyage",
+    "description": "Découvrez hôtels, vols, séjours et croisières avec les conseils personnalisés de JP Global Travel."
+  },
+  "it": {
+    "navHome": "Home",
+    "navServices": "Servizi",
+    "navContact": "Contatti",
+    "heroTitle": "Il mondo comincia qui.",
+    "heroSubtitle": "Esperienze di viaggio pensate per scoprire nuovi orizzonti.",
+    "heroCta": "SCOPRI I NOSTRI SERVIZI",
+    "aboutTitle": "Più che destinazioni, esperienze.",
+    "aboutText": "JP Global Travel nasce da un’autentica passione per la scoperta del mondo e da oltre 15 anni di esperienza nel settore alberghiero. L’ospitalità, l’attenzione ai dettagli e un rapporto diretto e personale fanno parte della nostra essenza e del nostro modo di intendere l’arte di viaggiare.",
+    "servicesTitle": "La tua prossima destinazione, la nostra ispirazione.",
+    "servicesText": "Ogni destinazione apre un mondo di possibilità. Scopri le nostre proposte di hotel, voli, pacchetti e crociere e inizia a dare forma alla tua prossima avventura, esplorando nuovi modi di scoprire il mondo.",
+    "hotelsTitle": "Hotel e Resort",
+    "hotelsText": "Sistemazioni per ogni stile di viaggio.",
+    "flightsTitle": "Voli",
+    "flightsText": "Nuove destinazioni, nuove possibilità.",
+    "packagesTitle": "Pacchetti viaggio",
+    "packagesText": "Esperienze per scoprire il mondo.",
+    "cruisesTitle": "Crociere",
+    "cruisesText": "Un modo diverso di esplorare nuovi orizzonti.",
+    "contactTitle": "Iniziamo a pianificare.",
+    "contactText": "Raccontaci qual è la tua prossima destinazione.",
+    "quoteCta": "RICHIEDI UN PREVENTIVO",
+    "footer": "JP Global Travel · Consulenza di viaggio indipendente",
+    "pageTitle": "JP Global Travel | Esperienze di viaggio",
+    "description": "Scopri hotel, voli, pacchetti e crociere con la consulenza personalizzata di JP Global Travel."
+  }
+};
+const jpLanguageStorageKey = 'jpglobaltravel-language';
+const allowedLanguages = ['es','en','pt','fr','it'];
+const languageSelector = document.getElementById('site-language');
+const paramLang = new URLSearchParams(window.location.search).get('lang');
+let savedLang = null;
+try { savedLang = localStorage.getItem(jpLanguageStorageKey); } catch (error) { /* privacidad del navegador */ }
+const initialLang = allowedLanguages.includes(paramLang) ? paramLang :
+  (allowedLanguages.includes(savedLang) ? savedLang : 'es');
+function setSiteLanguage(lang) {
+  if (!allowedLanguages.includes(lang)) lang = 'es';
+  const t = jpTranslations[lang];
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+  document.title = t.pageTitle;
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.setAttribute('content', t.description);
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const translated = t[element.dataset.i18n];
+    if (typeof translated === 'string') element.textContent = translated;
+  });
+  document.querySelectorAll('[data-lang-link]').forEach(link => {
+    const target = link.getAttribute('data-original-href') || link.getAttribute('href').split('?')[0];
+    link.setAttribute('data-original-href',target);
+    link.setAttribute('href',lang === 'es' ? target : target + '?lang=' + encodeURIComponent(lang));
+  });
+  languageSelector.value = lang;
+  try { localStorage.setItem(jpLanguageStorageKey,lang); } catch (error) { /* privacidad del navegador */ }
+}
+languageSelector.addEventListener('change', event => setSiteLanguage(event.target.value));
+setSiteLanguage(initialLang);
+</script>
 </body>
 </html>
