@@ -71,6 +71,25 @@ nav a{margin-left:0}
 .language-picker select{border:1px solid #E7E1D7;border-radius:4px;background:#fff;color:#253443;padding:7px 5px;font-family:Arial,Helvetica,sans-serif;font-size:12px;cursor:pointer}
 .language-picker select:focus-visible{outline:2px solid #B6A27C;outline-offset:2px}
 @media(max-width:600px){nav{justify-content:center;gap:13px}.language-picker{gap:3px}.language-picker select{padding:5px 3px;font-size:12px}}
+
+/* JP Global Travel — redes sociales, integrado con paleta editorial */
+.jp-social-hub{background:#182d40;color:#f8f5ef;padding:46px 8% 52px;text-align:center}
+.jp-social-eyebrow{margin:0 0 9px;letter-spacing:3px;font-size:11px;color:#cbb796;text-transform:uppercase}
+.jp-social-heading{margin:0 0 26px;font-family:Georgia,serif;font-size:clamp(23px,3vw,30px);font-weight:400;color:#fff}
+.jp-social-links{display:flex;justify-content:center;align-items:stretch;gap:12px;max-width:920px;margin:0 auto;flex-wrap:wrap}
+.jp-social-link{width:calc(33.333% - 9px);min-width:190px;max-width:290px;display:flex;align-items:center;gap:12px;padding:17px 15px;color:#f6f3ec;text-decoration:none;text-align:left;background:rgba(255,255,255,.035);border:1px solid rgba(218,201,171,.3);border-radius:5px;transition:background .2s,border-color .2s}
+.jp-social-link:hover,.jp-social-link:focus-visible{background:rgba(255,255,255,.09);border-color:#ccb99a;outline:0}
+.jp-social-link[hidden],.jp-whatsapp[hidden]{display:none!important}
+.jp-social-link svg{flex:none;width:23px;height:23px;stroke:#cdbb9d;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.jp-social-labels{min-width:0;display:block}
+.jp-social-labels strong{display:block;font-size:13px;letter-spacing:.25px;font-weight:500}
+.jp-social-labels small{display:block;font-size:11px;color:#c6cdd3;margin-top:5px;line-height:1.4}
+.jp-social-arrow{margin-left:auto;font-size:16px;color:#cdbb9d}
+.jp-social-copy{margin-top:26px;font-size:11px;color:#bfc9d0}
+.jp-whatsapp{position:fixed;right:20px;bottom:20px;display:flex;align-items:center;gap:8px;z-index:9999;background:#276f5b;border:1px solid #a4ceb9;color:white;box-shadow:0 5px 18px #0a14243a;border-radius:40px;padding:12px 17px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:600}
+.jp-whatsapp:hover,.jp-whatsapp:focus-visible{background:#205b4b;outline:2px solid #cbe5d5;outline-offset:2px}
+.jp-whatsapp svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:650px){.jp-social-hub{padding:42px 6%}.jp-social-links{flex-direction:column;align-items:center}.jp-social-link{width:100%;max-width:390px}.jp-whatsapp{right:14px;bottom:14px;padding:11px 14px}}
 </style>
 </head>
 <body>
@@ -132,6 +151,32 @@ nav a{margin-left:0}
 
 </section>
 </main>
+<section class="jp-social-hub" aria-labelledby="jp-social-heading">
+  <p class="jp-social-eyebrow" data-jp-social="eyebrow">CONECTA CON NOSOTROS</p>
+  <h2 class="jp-social-heading" id="jp-social-heading" data-jp-social="heading">Descubre nuestro universo</h2>
+  <div class="jp-social-links">
+  <a class="jp-social-link" id="social-agencia" href="https://www.instagram.com/jp.globaltravel/"  target="_blank" rel="noopener noreferrer" aria-label="Instagram de JP Global Travel">
+    <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".6" fill="currentColor" stroke="none"/></svg>
+    <span class="jp-social-labels"><strong>JP Global Travel</strong><small data-jp-social="social-agencia">Cuenta oficial de la agencia</small></span>
+    <span class="jp-social-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a class="jp-social-link" id="social-personal" href="https://www.instagram.com/jotape_hs/"  target="_blank" rel="noopener noreferrer" aria-label="Instagram de Experiencias de tu asesor">
+    <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".6" fill="currentColor" stroke="none"/></svg>
+    <span class="jp-social-labels"><strong>Experiencias de tu asesor</strong><small data-jp-social="social-personal">Viajes y experiencias personales</small></span>
+    <span class="jp-social-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a class="jp-social-link" id="social-estudio" href="#" hidden target="_blank" rel="noopener noreferrer" aria-label="Instagram de JP Studio">
+    <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".6" fill="currentColor" stroke="none"/></svg>
+    <span class="jp-social-labels"><strong>JP Studio</strong><small data-jp-social="social-estudio">Fotografía de autor, culturas y destinos</small></span>
+    <span class="jp-social-arrow" aria-hidden="true">↗</span>
+  </a>
+  </div>
+  <p class="jp-social-copy" data-jp-social="copy">Cada destino tiene una historia que contar.</p>
+</section>
+<a class="jp-whatsapp" id="jp-whatsapp" hidden href="#" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.4-4.5A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M9 8.3c-.6.3-.8 1.1-.5 1.9.6 1.8 2.8 4 4.6 4.7.8.3 1.6.1 1.9-.5l.4-.8-2.1-1.1-.9 1a7.9 7.9 0 0 1-3-3l1-.9L9.3 8Z"/></svg>
+<span data-jp-social="whatsapp">WhatsApp</span>
+</a>
 <footer data-i18n="footer">JP Global Travel · Asesoría de viajes independiente</footer>
 
 
@@ -299,6 +344,43 @@ function setSiteLanguage(lang) {
 }
 languageSelector.addEventListener('change', event => setSiteLanguage(event.target.value));
 setSiteLanguage(initialLang);
+</script>
+<script>
+/* Enlaces oficiales para las consultas y portafolio de JP Global Travel. */
+const jpStudioInstagram = "jpstudio.travel";
+const jpWhatsAppNumber = "56954573228";
+const jpWhatsAppMessage = "Hola, visité JP Global Travel y me gustaría recibir asesoría para mi próximo viaje.";
+(function(){
+  const studio = document.getElementById('social-estudio');
+  const studioUser = jpStudioInstagram.trim().replace(/^@/, '');
+  if (studioUser && /^[a-zA-Z0-9._]+$/.test(studioUser)) {
+    studio.href = 'https://www.instagram.com/' + studioUser + '/';
+    studio.hidden = false;
+  }
+  const wa = document.getElementById('jp-whatsapp');
+  const phone = jpWhatsAppNumber.replace(/\D/g, '');
+  if (phone.length >= 8 && phone.length <= 15) {
+    wa.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(jpWhatsAppMessage);
+    wa.hidden = false;
+  }
+  const labels = {
+    es:{eyebrow:'CONECTA CON NOSOTROS', heading:'Descubre nuestro universo', 'social-agencia':'Cuenta oficial de la agencia', 'social-personal':'Viajes y experiencias personales', 'social-estudio':'Fotografía de autor, culturas y destinos', copy:'Cada destino tiene una historia que contar.',whatsapp:'WhatsApp'},
+    en:{eyebrow:'CONNECT WITH US', heading:'Discover our world', 'social-agencia':'Official travel agency account', 'social-personal':'Travel and personal experiences', 'social-estudio':'Fine-art photography, cultures and destinations', copy:'Every destination has a story to tell.',whatsapp:'WhatsApp'},
+    pt:{eyebrow:'CONECTE-SE CONOSCO', heading:'Descubra nosso universo', 'social-agencia':'Perfil oficial da agência', 'social-personal':'Viagens e experiências pessoais', 'social-estudio':'Fotografia autoral, culturas e destinos', copy:'Cada destino tem uma história para contar.',whatsapp:'WhatsApp'},
+    fr:{eyebrow:'RESTONS EN CONTACT', heading:'Découvrez notre univers', 'social-agencia':'Compte officiel de l’agence', 'social-personal':'Voyages et expériences personnelles', 'social-estudio':'Photographie d’auteur, cultures et destinations', copy:'Chaque destination a une histoire à raconter.',whatsapp:'WhatsApp'},
+    it:{eyebrow:'RESTA IN CONTATTO', heading:'Scopri il nostro universo', 'social-agencia':'Profilo ufficiale dell’agenzia', 'social-personal':'Viaggi ed esperienze personali', 'social-estudio':'Fotografia d’autore, culture e destinazioni', copy:'Ogni destinazione ha una storia da raccontare.',whatsapp:'WhatsApp'}
+  };
+  function translateSocial(){
+    const lang = document.getElementById('site-language')?.value || document.documentElement.lang || 'es';
+    const t = labels[lang] || labels.es;
+    document.querySelectorAll('[data-jp-social]').forEach(el => {
+      const value = t[el.getAttribute('data-jp-social')];
+      if (value) el.textContent = value;
+    });
+  }
+  document.getElementById('site-language')?.addEventListener('change', translateSocial);
+  translateSocial();
+})();
 </script>
 </body>
 </html>
